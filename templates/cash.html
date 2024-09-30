@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}внесение/снятие{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cash.css' %}">
+    <div class="info">
+        <p class="req">Заявка №318</p>
+        <p class="dat">{{cash.current_date}}</p>
+        <p class="address">г. Москва, ул. Мирная 11, д. 2</p>
+    </div>
+    <div class="space">
+        <div class="cash-container">
+            <!-- {% for cash_el in cash %}
+                {% include 'cash_el.html' %}
+            {% empty %}
+            <li>Список пуст</li>
+            {% endfor %} -->
+            {% for bill in cash.bills %}
+                {% include 'cash_el.html' %}
+            {% empty %}
+            <li>Список пуст</li>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Сбер-банк{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/bills.css' %}">
+<div class="line">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="line-search">
+            <input name="text" placeholder="Поиск" type="number" value="{{ value }}" id="search-id"><br><br>
+        </div>      
+    </form>
+    <a href="/cash/{{pick_cash.id}}/"><img src="http://127.0.0.1:9000/rip/cashhand.png" class="dep"></a>
+</div>
+<div class="space">
+<div class="container">
+    {% for bill in bills %}
+        {% include 'bill_element.html' %}
+    {% empty %}
+    <li>Список пуст</li>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/cash_el.css' %}">
+<div class="cash-card">
+    <img src="{{ bill.imagen }}" class="imagen">
+    <div class="lin"></div>
+    <p class="name-bill">{{bill.name}}</p>
+    <div class="lin"></div>
+    <p class="operation">{{bill.operation}}</p>
+    <div class="lin"></div>
+    <p class="count">{{bill.count}}</p>
+</div>
